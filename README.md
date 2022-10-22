@@ -35,6 +35,9 @@ $ npm install
 ## Running the app
 
 ```bash
+# deps
+$npm run deps:start
+
 # development
 $ npm run start
 
