@@ -1,0 +1,148 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  docType: DocTypes!
+
+  """used for soft deleting docs"""
+  inactive: Boolean!
+  _id: ID!
+  orgId: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  name: String!
+
+  """follows moment/dayjs timezone name format"""
+  timezone: String!
+  roleIds: [ID!]!
+}
+
+enum DocTypes {
+  User
+  Org
+  Role
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type PaginationSortDto {
+  inactive: Boolean
+  createdAt: Float
+  updatedAt: Float
+}
+
+type PaginationSortUserDto {
+  inactive: Boolean
+  createdAt: Float
+  updatedAt: Float
+  name: Float
+  email: Float
+}
+
+type PaginationFilterUserDto {
+  startDate: DateTime
+  endDate: DateTime
+  search: String
+  name: String
+  email: String
+}
+
+type FindAllResultsUserDto {
+  count: Float!
+  results: [User!]!
+}
+
+input UserInput {
+  docType: DocTypes!
+
+  """used for soft deleting docs"""
+  inactive: Boolean!
+  _id: ID!
+  orgId: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  email: String!
+  name: String!
+
+  """follows moment/dayjs timezone name format"""
+  timezone: String!
+  roleIds: [ID!]!
+}
+
+input PaginationSortDtoInput {
+  inactive: Boolean
+  createdAt: Float
+  updatedAt: Float
+}
+
+input PaginationSortUserDtoInput {
+  inactive: Boolean
+  createdAt: Float
+  updatedAt: Float
+  name: Float
+  email: Float
+}
+
+input PaginationFilterUserDtoInput {
+  startDate: DateTime
+  endDate: DateTime
+  search: String
+  name: String
+  email: String
+}
+
+input FindAllResultsUserDtoInput {
+  count: Float!
+  results: [UserInput!]!
+}
+
+type Query {
+  findAllUsers(pagination: PaginationFindAllUserDtoInput): FindAllResultsUserDto!
+  findUserById(id: String!): User!
+}
+
+input PaginationFindAllUserDtoInput {
+  skip: Float
+  limit: Float
+  inactive: Boolean
+  sort: PaginationSortUserDtoInput
+  filter: PaginationFilterUserDtoInput
+}
+
+type Mutation {
+  softDeleteUser(id: String!): Boolean!
+  updateUser(data: UpdateUserDtoInput!): Boolean!
+  createUser(data: CreateUserDtoInput!): User!
+}
+
+input UpdateUserDtoInput {
+  """used for typing docs"""
+  docType: String
+
+  """used for soft deleting docs"""
+  inactive: Boolean
+  _id: ID
+  orgId: ID
+  createdAt: DateTime
+  updatedAt: DateTime
+  email: String
+  name: String
+
+  """follows moment/dayjs timezone name format"""
+  timezone: String
+  roleIds: [ID!]
+}
+
+input CreateUserDtoInput {
+  orgId: ID!
+  email: String!
+  name: String!
+
+  """follows moment/dayjs timezone name format"""
+  timezone: String!
+}

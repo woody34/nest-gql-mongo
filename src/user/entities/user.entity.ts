@@ -1,6 +1,7 @@
 import { Mongo, MongoDoc } from "src/shared/entities/mongo.entity"
 import { DocumentGql, PropGql } from "src/shared/entity.decorator"
 import { DocTypes } from "src/shared/enums/doc-types.enum"
+import { Role } from "./role.entity"
 
 @DocumentGql({ collection: 'users' })
 export class User extends Mongo implements MongoDoc<DocTypes.User> {
@@ -17,5 +18,5 @@ export class User extends Mongo implements MongoDoc<DocTypes.User> {
   timezone: string
 
   @PropGql({ idArray: { ref: 'Role' } })
-  roleIds: string[] // TODO: fix type
+  roleIds: Role['_id'][]
 }

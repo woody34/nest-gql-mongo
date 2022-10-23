@@ -1,6 +1,7 @@
 import { ObjectId } from 'mongodb'
 import { DocTypes } from '../enums/doc-types.enum'
 import { DocumentGql, ObjectGql, PropGql } from '../entity.decorator'
+import { Org } from 'src/org/entities/org.entity'
 
 @ObjectGql()
 export abstract class MongoDoc<DOC_TYPE = DocTypes> {
@@ -18,6 +19,9 @@ export abstract class Mongo {
 
   @PropGql({ id: true, default: () => new ObjectId() })
   _id: ObjectId | string
+
+  @PropGql({ id: true, ref: 'Org' })
+  orgId: Org['_id']
 
   @PropGql({ type: Date })
   createdAt: Date
