@@ -1,6 +1,4 @@
-import { User } from "src/user/entities/user.entity"
-import { Mongo } from "../entities/mongo.entity"
-import { ObjectGql } from "../entity.decorator"
+import { Mongo } from '../entities/mongo.entity'
 
 export abstract class FindAllResultsDto<ENTITY extends Mongo> {
   count: number

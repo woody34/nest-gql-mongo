@@ -6,26 +6,26 @@ import { Org } from 'src/org/entities/org.entity'
 @ObjectGql()
 export abstract class MongoDoc<DOC_TYPE = DocTypes> {
   @PropGql({ type: String })
-  docType: DOC_TYPE
+    docType: DOC_TYPE
 }
 
 @DocumentGql()
 export abstract class Mongo {
   @PropGql({ type: String, nullable: true, description: 'used for typing docs' })
-  docType?: string
+    docType?: string
 
   @PropGql({ type: Boolean, default: false, description: 'used for soft deleting docs' })
-  inactive: boolean
+    inactive: boolean
 
   @PropGql({ id: true, default: () => new ObjectId() })
-  _id: ObjectId | string
+    _id: ObjectId | string
 
   @PropGql({ id: true, ref: 'Org' })
-  orgId: Org['_id']
+    orgId: Org['_id']
 
   @PropGql({ type: Date })
-  createdAt: Date
+    createdAt: Date
 
   @PropGql({ type: Date })
-  updatedAt: Date
+    updatedAt: Date
 }

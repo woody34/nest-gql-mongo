@@ -1,27 +1,27 @@
-import { ObjectGql, PropGql } from "../entity.decorator"
+import { ObjectGql, PropGql } from '../entity.decorator'
 
 @ObjectGql()
 export abstract class PaginationFilterDto {
   @PropGql({ type: Date, nullable: true })
-  startDate?: Date
+    startDate?: Date
 
   @PropGql({ type: Date, nullable: true })
-  endDate?: Date
+    endDate?: Date
 
   @PropGql({ type: String, nullable: true })
-  search?: string
+    search?: string
 }
 
 @ObjectGql()
 export abstract class PaginationSortDto {
   @PropGql({ type: Boolean, nullable: true })
-  inactive?: boolean
+    inactive?: boolean
 
   @PropGql({ type: Number, nullable: true })
-  createdAt?: number
+    createdAt?: number
 
   @PropGql({ type: Number, nullable: true })
-  updatedAt?: number
+    updatedAt?: number
 }
 
 @ObjectGql()
@@ -29,17 +29,17 @@ export abstract class PaginationDto {
   public static defaultLimit = 1000
 
   @PropGql({ type: Number, nullable: true, default: 0 })
-  skip?: number
+    skip?: number
 
   @PropGql({ type: Number, nullable: true, default: PaginationDto.defaultLimit })
-  limit?: number
+    limit?: number
 
   @PropGql({ type: Boolean, nullable: true })
-  inactive?: boolean
+    inactive?: boolean
 
   @PropGql({ type: PaginationSortDto, nullable: true })
-  sort?: PaginationSortDto
+    sort?: PaginationSortDto
 
   @PropGql({ type: PaginationSortDto, nullable: true })
-  filter?: PaginationFilterDto
+    filter?: PaginationFilterDto
 }

@@ -1,29 +1,29 @@
-import { PaginationDto, PaginationFilterDto, PaginationSortDto } from "src/shared/dtos/pagination.dto"
-import { ObjectGql, PropGql } from "src/shared/entity.decorator"
+import { PaginationDto, PaginationFilterDto, PaginationSortDto } from 'src/shared/dtos/pagination.dto'
+import { ObjectGql, PropGql } from 'src/shared/entity.decorator'
 
 @ObjectGql()
 export class PaginationSortOrgDto extends PaginationSortDto {
   @PropGql({ type: Number, nullable: true })
-  createdAt?: number
+    createdAt?: number
 
   @PropGql({ type: Number, nullable: true })
-  updatedAt?: number
+    updatedAt?: number
 
   @PropGql({ type: Number, nullable: true })
-  name?: number
+    name?: number
 }
 
 @ObjectGql()
 export class PaginationFilterOrgDto extends PaginationFilterDto {
   @PropGql({ type: String })
-  name?: string
+    name?: string
 }
 
 @ObjectGql()
 export class PaginationFindAllOrgDto extends PaginationDto {
   @PropGql({ type: PaginationSortOrgDto, nullable: true })
-  sort?: PaginationSortOrgDto
+    sort?: PaginationSortOrgDto
 
   @PropGql({ type: PaginationFilterOrgDto, nullable: true })
-  filter?: PaginationFilterOrgDto
+    filter?: PaginationFilterOrgDto
 }
